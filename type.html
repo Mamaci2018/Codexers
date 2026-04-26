@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Codexers Levels</title>
+<style>
+body { font-family: Arial, sans-serif; background:#0f172a; color:white; display:flex; flex-direction:column; align-items:center; padding-top:60px; }
+.container { width:90%; max-width:600px; }
+input { width:100%; padding:12px; font-size:16px; border-radius:8px; border:none; outline:none; }
+button { margin-top:10px; padding:10px 15px; border:none; border-radius:8px; background:#22c55e; color:white; cursor:pointer; }
+button:disabled { background:#555; cursor:not-allowed; }
+#msg { margin-top:15px; }
+.level { background:#1e293b; padding:15px; border-radius:10px; margin-bottom:20px; }
+</style>
+</head>
+<body>
+
+<div class="container">
+<h1>Codexers Levels</h1>
+
+<div class="level">
+<h2>Level 1: Console Log</h2>
+<p>Type exactly: console.log("hello")</p>
+<input id="input1" placeholder="Type here..." />
+<button id="btn1" onclick="check1()">Enter</button>
+<div id="msg1"></div>
+</div>
+
+<div class="level">
+<h2>Level 2: Variable</h2>
+<p>Type: let x = 5</p>
+<input id="input2" placeholder="Type here..." />
+<button id="btn2" onclick="check2()" disabled>Enter</button>
+<div id="msg2"></div>
+</div>
+
+</div>
+
+<script>
+function check1(){
+  let val = document.getElementById('input1').value.trim();
+  if(val === 'console.log("hello")' || val === "console.log('hello')"){
+    document.getElementById('msg1').innerText = "Correct! Level 2 unlocked";
+    document.getElementById('btn2').disabled = false;
+  } else {
+    document.getElementById('msg1').innerText = "Incorrect, try again";
+  }
+}
+
+function check2(){
+  let val = document.getElementById('input2').value.trim();
+  if(val === 'let x = 5'){
+    document.getElementById('msg2').innerText = "Correct! You passed";
+  } else {
+    document.getElementById('msg2').innerText = "Wrong answer";
+  }
+}
+</script>
+
+</body>
+</html>
